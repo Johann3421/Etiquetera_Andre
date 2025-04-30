@@ -1,0 +1,72 @@
+[24-Apr-2025 23:57:25 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function asset() in /home7/sekaitec/ventas.sekaitech.com.pe/public/dashboard.php:250
+Stack trace:
+#0 {main}
+  thrown in /home7/sekaitec/ventas.sekaitech.com.pe/public/dashboard.php on line 250
+[24-Apr-2025 23:57:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function asset() in /home7/sekaitec/ventas.sekaitech.com.pe/public/dashboard.php:250
+Stack trace:
+#0 {main}
+  thrown in /home7/sekaitec/ventas.sekaitech.com.pe/public/dashboard.php on line 250
+[28-Apr-2025 17:44:28 UTC] PHP Warning:  move_uploaded_file(../uploads/foto_680fbe7c69040.png): Failed to open stream: No such file or directory in /home7/sekaitec/ventas.sekaitech.com.pe/public/subir_foto.php on line 4
+[28-Apr-2025 17:44:28 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpkM7jkV' to '../uploads/foto_680fbe7c69040.png' in /home7/sekaitec/ventas.sekaitech.com.pe/public/subir_foto.php on line 4
+[28-Apr-2025 17:55:32 UTC] PHP Warning:  move_uploaded_file(../uploads/foto_680fc1149e2f8.png): Failed to open stream: No such file or directory in /home7/sekaitec/ventas.sekaitech.com.pe/public/subir_foto.php on line 4
+[28-Apr-2025 17:55:32 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpiPA09A' to '../uploads/foto_680fc1149e2f8.png' in /home7/sekaitec/ventas.sekaitech.com.pe/public/subir_foto.php on line 4
+[30-Apr-2025 13:30:00 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:30:00 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:30:00 UTC] PHP Deprecated:  urlencode(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:30:00 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:30:00 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:30:00 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:30:00 UTC] PHP Warning:  Undefined variable $recepciones in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:30:00 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:30:25 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:30:25 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:30:25 UTC] PHP Deprecated:  urlencode(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:30:25 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:30:25 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:30:25 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:30:25 UTC] PHP Warning:  Undefined variable $recepciones in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:30:25 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:30:28 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:30:28 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:30:28 UTC] PHP Deprecated:  urlencode(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:30:28 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:30:28 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:30:28 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:30:28 UTC] PHP Warning:  Undefined variable $recepciones in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:30:28 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:30:30 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:30:30 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:30:30 UTC] PHP Deprecated:  urlencode(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:30:30 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:30:30 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:30:30 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:30:30 UTC] PHP Warning:  Undefined variable $recepciones in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:30:30 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:33:07 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:33:07 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:33:07 UTC] PHP Deprecated:  urlencode(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:33:07 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:33:07 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:33:07 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:33:07 UTC] PHP Warning:  Undefined variable $recepciones in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:33:07 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:33:14 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:33:14 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:33:14 UTC] PHP Deprecated:  urlencode(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:33:14 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:33:14 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:33:14 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:33:14 UTC] PHP Warning:  Undefined variable $recepciones in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:33:14 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:33:53 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:33:53 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:33:53 UTC] PHP Deprecated:  urlencode(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 202
+[30-Apr-2025 13:33:53 UTC] PHP Warning:  Undefined global variable $_SESSION in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:33:53 UTC] PHP Warning:  Trying to access array offset on value of type null in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:33:53 UTC] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 203
+[30-Apr-2025 13:33:53 UTC] PHP Warning:  Undefined variable $recepciones in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:33:53 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /home7/sekaitec/ventas.sekaitech.com.pe/public/reportes.php on line 249
+[30-Apr-2025 13:45:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function generarCodigoUnico() in /home7/sekaitec/ventas.sekaitech.com.pe/public/dashboard.php:279
+Stack trace:
+#0 {main}
+  thrown in /home7/sekaitec/ventas.sekaitech.com.pe/public/dashboard.php on line 279
