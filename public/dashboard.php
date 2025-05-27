@@ -33,28 +33,32 @@ $conn = $db->connect();
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            display: grid;
-            grid-template-columns: 250px 1fr;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            display: flex;
             min-height: 100vh;
-            background-color: #f5f7fa;
         }
 
         /* Sidebar */
         .sidebar {
             background: linear-gradient(to bottom, var(--primary-color), var(--primary-dark));
             color: white;
+            width: 250px;
+            min-height: 100vh;
             padding: 20px 0;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            position: fixed;
+            left: 0;
+            top: 0;
         }
 
         .user-profile {
             text-align: center;
             padding: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .user-profile img {
@@ -63,19 +67,53 @@ $conn = $db->connect();
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 10px;
-            border: 3px solid rgba(255, 255, 255, 0.2);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+
+        .menu {
+            padding: 20px;
+        }
+
+        .menu ul {
+            list-style: none;
+        }
+
+        .menu li {
+            margin: 15px 0;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+        }
+
+        .menu a:hover {
+            background: rgba(255,255,255,0.2);
         }
 
         /* Main content */
-        main {
-            padding: 30px;
-        }
+        .main-content {
+    margin-left: 250px;
+    padding: 30px;
+    min-height: 100vh;
+    width: calc(100% - 250px);
+    display: block; /* O flex con align-items: stretch, pero block es suficiente */
+}
 
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
         }
 
         .logout-btn {
@@ -85,204 +123,201 @@ $conn = $db->connect();
             border: none;
             padding: 8px 15px;
             border-radius: var(--border-radius);
+            background: var(--primary-color);
+            color: white;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .logout-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Formulario */
-        .form-container {
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            padding: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .form-logo {
-            display: block;
-            margin: 0 auto 20px;
-            max-width: 150px;
-
-        }
-
-        .form-title {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--primary-dark);
-            font-size: 1.5rem;
-        }
-
-        .form-section {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .form-section-title {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--dark-color);
-            font-size: 0.9rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            min-height: 80px;
-            resize: vertical;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .checkbox-group input {
-            margin-right: 10px;
-        }
-
-        .form-actions {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-
-        .btn {
-            padding: 12px 20px;
-            border: none;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(to right, var(--primary-dark), var(--primary-color));
-            transform: translateY(-2px);
-        }
-
-        .btn-print {
-            background: #6c757d;
-            color: white;
-        }
-
-        .btn-print:hover {
-            background: #5a6268;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                display: none;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        #tipo_moneda {
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            width: 100%;
-            margin-top: 5px;
-        }
-
-        .form-grid .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .btn-secondary {
-            background: var(--secondary-color);
-            color: white;
-        }
-
-        .btn-secondary:hover {
             background: var(--primary-dark);
         }
+
+        /* Container */
+        .form-container {
+    background: #fff;
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto; /* Centra horizontalmente solo el formulario */
+}
+
+
+        h1, .form-title {
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Table styles (opcional, si usas tablas en dashboard) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        table thead {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        table tbody tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .actions {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                min-height: auto;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+        /* ...existing code... */
+
+.form-section {
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.form-section-title {
+    color: var(--primary-color);
+    font-size: 18px;
+    margin-bottom: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.form-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1 1 220px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--dark-color);
+    text-align: left;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 15px;
+    background: #f8f9fa;
+    transition: border 0.2s;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border: 1.5px solid var(--primary-color);
+    background: #fff;
+}
+
+.form-group textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.form-logo {
+    display: block;
+    margin: 0 auto 18px auto;
+    max-width: 180px;
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        flex-direction: column;
+        gap: 0;
+    }
+    .form-container {
+        padding: 10px;
+    }
+    .main-content {
+        padding: 10px;
+    }
+}
+
+/* ...existing code... */
     </style>
 </head>
 
 <body>
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <div class="user-profile">
-            <img src="https://ui-avatars.com/api/?name=<?php echo urlencode($_SESSION['username']) ?>&background=random"
-                alt="Perfil">
-            <h3><?php echo htmlspecialchars($_SESSION['username']) ?></h3>
-        </div>
-        <nav class="menu">
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin: 10px 0;"><a href="index.php"
-                        style="color:white; text-decoration:none; font-weight:bold;">📋 Recepción Principal</a></li>
-                <li style="margin: 10px 0;"><a href="reportes.php"
-                        style="color:white; text-decoration:none; font-weight:bold;">📈 Reportes</a></li>
-            </ul>
-        </nav>
+    <?php include '../public/layouts/sidebar.php'; ?>
 
-
-
-        <nav>
-            <!-- Aquí podrías añadir más items de menú -->
-        </nav>
-    </aside>
-
-    <!-- Main content -->
-    <main>
-        <div class="header">
-            <h1>Sistema de Recepción</h1>
-            <button class="logout-btn" onclick="window.location.href='logout.php'">
-                <i class="fas fa-sign-out-alt"></i>
-                Cerrar sesión
-            </button>
-        </div>
+    <div class="main-content">
+        <?php include '../public/layouts/header.php'; ?>
 
         <div class="form-container">
-            <!-- Logo y título -->
             <img src="/images/logo_almerco.png" alt="Logo" class="form-logo">
             <h2 class="form-title">FORMATO DE RECEPCIÓN DE EQUIPOS DE CÓMPUTO O IMPRESORAS</h2>
-
             <form id="recepcionForm">
                 <!-- Apartado para editar código generado automáticamente -->
                 <div class="form-section">

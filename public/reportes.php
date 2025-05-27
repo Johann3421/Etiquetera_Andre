@@ -210,27 +210,10 @@ $recepciones = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </style>
 </head>
 <body>
-    <aside class="sidebar">
-        <div class="user-profile">
-            <img src="https://ui-avatars.com/api/?name=<?php echo urlencode($_SESSION['username'])?>&background=random" alt="Perfil">
-            <h3><?php echo htmlspecialchars($_SESSION['username'])?></h3>
-        </div>
-        <nav class="menu">
-            <ul>
-                <li><a href="index.php"><i class="fas fa-home"></i> Recepcion Principal</a></li>
-                <li><a href="reportes.php"><i class="fas fa-file-alt"></i> Reportes</a></li>
-            </ul>
-        </nav>
-    </aside>
+    <?php include '../public/layouts/sidebar.php'; ?>
 
     <div class="main-content">
-        <div class="header">
-            <h1>Sistema de Recepcion</h1>
-            <button class="logout-btn" onclick="window.location.href='logout.php'">
-                <i class="fas fa-sign-out-alt"></i>
-                Cerrar sesion
-            </button>
-        </div>
+        <?php include '../public/layouts/header.php'; ?>
 
         <div class="container">
             <h1>Listado de Recepciones</h1>
