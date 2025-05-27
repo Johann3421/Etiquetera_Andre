@@ -6,6 +6,7 @@ checkAuthentication();
 
 $db   = new Database();
 $conn = $db->connect();
+date_default_timezone_set('America/Lima');
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +50,7 @@ $conn = $db->connect();
             width: 250px;
             min-height: 100vh;
             padding: 20px 0;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             left: 0;
             top: 0;
@@ -58,7 +59,7 @@ $conn = $db->connect();
         .user-profile {
             text-align: center;
             padding: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .user-profile img {
@@ -67,7 +68,7 @@ $conn = $db->connect();
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 10px;
-            border: 3px solid rgba(255,255,255,0.2);
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
 
         .menu {
@@ -93,17 +94,18 @@ $conn = $db->connect();
         }
 
         .menu a:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         /* Main content */
         .main-content {
-    margin-left: 250px;
-    padding: 30px;
-    min-height: 100vh;
-    width: calc(100% - 250px);
-    display: block; /* O flex con align-items: stretch, pero block es suficiente */
-}
+            margin-left: 250px;
+            padding: 30px;
+            min-height: 100vh;
+            width: calc(100% - 250px);
+            display: block;
+            /* O flex con align-items: stretch, pero block es suficiente */
+        }
 
         .header {
             display: flex;
@@ -135,17 +137,19 @@ $conn = $db->connect();
 
         /* Container */
         .form-container {
-    background: #fff;
-    padding: 20px;
-    box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius);
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto; /* Centra horizontalmente solo el formulario */
-}
+            background: #fff;
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            /* Centra horizontalmente solo el formulario */
+        }
 
 
-        h1, .form-title {
+        h1,
+        .form-title {
             color: var(--primary-dark);
             margin-bottom: 20px;
             text-align: center;
@@ -163,7 +167,8 @@ $conn = $db->connect();
             color: white;
         }
 
-        table th, table td {
+        table th,
+        table td {
             padding: 12px;
             text-align: center;
             border-bottom: 1px solid #ddd;
@@ -206,106 +211,109 @@ $conn = $db->connect();
                 position: relative;
                 min-height: auto;
             }
-            
+
             .main-content {
                 margin-left: 0;
                 width: 100%;
             }
         }
+
         /* ...existing code... */
 
-.form-section {
-    margin-bottom: 28px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #e0e0e0;
-}
+        .form-section {
+            margin-bottom: 28px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
 
-.form-section-title {
-    color: var(--primary-color);
-    font-size: 18px;
-    margin-bottom: 14px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
+        .form-section-title {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-bottom: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
 
-.form-grid {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+        .form-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-.form-group {
-    flex: 1 1 220px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-}
+        .form-group {
+            flex: 1 1 220px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 16px;
+        }
 
-.form-group label {
-    font-weight: 500;
-    margin-bottom: 6px;
-    color: var(--dark-color);
-    text-align: left;
-}
+        .form-group label {
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--dark-color);
+            text-align: left;
+        }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: var(--border-radius);
-    font-size: 15px;
-    background: #f8f9fa;
-    transition: border 0.2s;
-    outline: none;
-}
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius);
+            font-size: 15px;
+            background: #f8f9fa;
+            transition: border 0.2s;
+            outline: none;
+        }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border: 1.5px solid var(--primary-color);
-    background: #fff;
-}
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border: 1.5px solid var(--primary-color);
+            background: #fff;
+        }
 
-.form-group textarea {
-    min-height: 60px;
-    resize: vertical;
-}
+        .form-group textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
 
-.checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 8px;
-}
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
 
-.form-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    margin-top: 24px;
-}
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 24px;
+        }
 
-.form-logo {
-    display: block;
-    margin: 0 auto 18px auto;
-    max-width: 180px;
-}
+        .form-logo {
+            display: block;
+            margin: 0 auto 18px auto;
+            max-width: 180px;
+        }
 
-@media (max-width: 600px) {
-    .form-grid {
-        flex-direction: column;
-        gap: 0;
-    }
-    .form-container {
-        padding: 10px;
-    }
-    .main-content {
-        padding: 10px;
-    }
-}
+        @media (max-width: 600px) {
+            .form-grid {
+                flex-direction: column;
+                gap: 0;
+            }
 
-/* ...existing code... */
+            .form-container {
+                padding: 10px;
+            }
+
+            .main-content {
+                padding: 10px;
+            }
+        }
+
+        /* ...existing code... */
     </style>
 </head>
 
@@ -457,360 +465,382 @@ $conn = $db->connect();
                 </div>
             </form>
         </div>
-    </main>
+        </main>
 
-    <!-- Scripts generales -->
+        <!-- Scripts generales -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Generar un código ascendente automáticamente
-            function generarCodigo() {
-                // Obtener el último código almacenado en el localStorage o iniciar desde 00001A
-                let ultimoCodigo = localStorage.getItem('ultimoCodigo') || '00000A';
+            document.addEventListener('DOMContentLoaded', function() {
+                // Generar un código ascendente automáticamente
+                function generarCodigo() {
+                    // Obtener el último código almacenado en el localStorage o iniciar desde 00001A
+                    let ultimoCodigo = localStorage.getItem('ultimoCodigo') || '00000A';
 
-                // Incrementar el código
-                let numero = parseInt(ultimoCodigo.slice(0, 5)); // Extraer los primeros 5 dígitos
-                let letra = ultimoCodigo.slice(5); // Extraer la letra final
+                    // Incrementar el código
+                    let numero = parseInt(ultimoCodigo.slice(0, 5)); // Extraer los primeros 5 dígitos
+                    let letra = ultimoCodigo.slice(5); // Extraer la letra final
 
-                numero++; // Incrementar el número
+                    numero++; // Incrementar el número
 
-                // Si el número supera 99999, reiniciar y avanzar la letra
-                if (numero > 99999) {
-                    numero = 0;
-                    letra = String.fromCharCode(letra.charCodeAt(0) + 1); // Avanzar a la siguiente letra
-                    if (letra > 'Z') letra = 'A'; // Reiniciar a 'A' si supera 'Z'
+                    // Si el número supera 99999, reiniciar y avanzar la letra
+                    if (numero > 99999) {
+                        numero = 0;
+                        letra = String.fromCharCode(letra.charCodeAt(0) + 1); // Avanzar a la siguiente letra
+                        if (letra > 'Z') letra = 'A'; // Reiniciar a 'A' si supera 'Z'
+                    }
+
+                    // Formatear el nuevo código
+                    const nuevoCodigo = numero.toString().padStart(5, '0') + letra;
+
+                    // Guardar el nuevo código en localStorage
+                    localStorage.setItem('ultimoCodigo', nuevoCodigo);
+
+                    return nuevoCodigo;
                 }
 
-                // Formatear el nuevo código
-                const nuevoCodigo = numero.toString().padStart(5, '0') + letra;
-
-                // Guardar el nuevo código en localStorage
-                localStorage.setItem('ultimoCodigo', nuevoCodigo);
-
-                return nuevoCodigo;
-            }
-
-            // Asignar el código generado al campo "Código Generado"
-            const codigoGeneradoInput = document.getElementById('codigoGenerado');
-            if (codigoGeneradoInput) {
-                codigoGeneradoInput.value = generarCodigo();
-            }
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            // Añadir selector de tipo de moneda dinámicamente
-            const costoGroup = document.querySelector('.form-group input[name="costo"]').parentNode;
-            const monedaSelect = document.createElement('div');
-            monedaSelect.className = 'form-group';
-            monedaSelect.innerHTML = `
+                // Asignar el código generado al campo "Código Generado"
+                const codigoGeneradoInput = document.getElementById('codigoGenerado');
+                if (codigoGeneradoInput) {
+                    codigoGeneradoInput.value = generarCodigo();
+                }
+            });
+            document.addEventListener('DOMContentLoaded', function() {
+                // Añadir selector de tipo de moneda dinámicamente
+                const costoGroup = document.querySelector('.form-group input[name="costo"]').parentNode;
+                const monedaSelect = document.createElement('div');
+                monedaSelect.className = 'form-group';
+                monedaSelect.innerHTML = `
         <label for="tipo_moneda">Moneda:</label>
         <select id="tipo_moneda" name="tipo_moneda" class="form-control">
             <option value="S/">Soles (S/)</option>
             <option value="$">Dólares ($)</option>
         </select>
             `;
-            costoGroup.parentNode.insertBefore(monedaSelect, costoGroup.nextSibling);
+                costoGroup.parentNode.insertBefore(monedaSelect, costoGroup.nextSibling);
 
-            // Validación del formulario
-            document.getElementById('recepcionForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const formData = new FormData(this);
+                // Validación del formulario
+                document.getElementById('recepcionForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(this);
 
-                fetch('guardar_recepcion.php', {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert('Guardado exitosamente');
-                            location.reload();
-                        } else {
-                            alert('Error: ' + data.message);
-                        }
-                    })
-                    .catch(err => {
-                        alert('Error de conexión');
-                    });
+                    fetch('guardar_recepcion.php', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert('Guardado exitosamente');
+                                location.reload();
+                            } else {
+                                alert('Error: ' + data.message);
+                            }
+                        })
+                        .catch(err => {
+                            alert('Error de conexión');
+                        });
+                });
+
             });
-
-        });
-        window.agregarCampo = function() {
-            let extrasContainer = document.getElementById('camposExtras');
-            if (!extrasContainer) {
-                extrasContainer = document.createElement('div');
-                extrasContainer.id = 'camposExtras';
-                document.getElementById('recepcionForm').appendChild(extrasContainer);
-            }
-            const div = document.createElement('div');
-            div.className = 'form-group';
-            div.innerHTML = `
+            window.agregarCampo = function() {
+                let extrasContainer = document.getElementById('camposExtras');
+                if (!extrasContainer) {
+                    extrasContainer = document.createElement('div');
+                    extrasContainer.id = 'camposExtras';
+                    document.getElementById('recepcionForm').appendChild(extrasContainer);
+                }
+                const div = document.createElement('div');
+                div.className = 'form-group';
+                div.innerHTML = `
         <label>Campo Extra:</label>
         <input type="text" name="extras[]" placeholder="Ingrese valor extra" class="form-control">
         `;
-            extrasContainer.appendChild(div);
-        }
-    </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const video = document.getElementById('camera');
-        const canvas = document.getElementById('snapshot');
-        const fotoUrlInput = document.getElementById('foto_url');
-        let stream = null;
-
-        // Activar la cámara
-        window.activarCamara = function () {
-            navigator.mediaDevices.getUserMedia({ video: true })
-                .then(mediaStream => {
-                    stream = mediaStream;
-                    video.srcObject = stream;
-                    video.style.display = 'block'; // Mostrar el video
-                })
-                .catch(err => {
-                    console.error("No se puede acceder a la cámara", err);
-                    alert("Error al activar la cámara. Verifica los permisos.");
-                });
-        };
-
-        // Capturar foto y enviarla al servidor
-        window.capturarFoto = function () {
-            if (!stream) {
-                alert("Primero activa la cámara.");
-                return;
+                extrasContainer.appendChild(div);
             }
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const video = document.getElementById('camera');
+                const canvas = document.getElementById('snapshot');
+                const fotoUrlInput = document.getElementById('foto_url');
+                let stream = null;
 
-            const ctx = canvas.getContext('2d');
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            ctx.drawImage(video, 0, 0);
+                // Activar la cámara
+                window.activarCamara = function() {
+                    navigator.mediaDevices.getUserMedia({
+                            video: true
+                        })
+                        .then(mediaStream => {
+                            stream = mediaStream;
+                            video.srcObject = stream;
+                            video.style.display = 'block'; // Mostrar el video
+                        })
+                        .catch(err => {
+                            console.error("No se puede acceder a la cámara", err);
+                            alert("Error al activar la cámara. Verifica los permisos.");
+                        });
+                };
 
-            canvas.toBlob(blob => {
-                const formData = new FormData();
-                formData.append('foto', blob, 'captura.png');
+                // Capturar foto y enviarla al servidor
+                window.capturarFoto = function() {
+                    if (!stream) {
+                        alert("Primero activa la cámara.");
+                        return;
+                    }
 
-                fetch('subir_foto.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.success) {
-                            fotoUrlInput.value = data.path; // Guardar la ruta en el campo oculto
-                            alert('Foto capturada y guardada exitosamente.');
-                        } else {
-                            alert('Error al guardar la foto: ' + data.message);
-                        }
-                    })
-                    .catch(err => {
-                        alert('Error al subir la foto.');
-                        console.error(err);
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    ctx.drawImage(video, 0, 0);
+
+                    canvas.toBlob(blob => {
+                        const formData = new FormData();
+                        formData.append('foto', blob, 'captura.png');
+
+                        fetch('subir_foto.php', {
+                                method: 'POST',
+                                body: formData
+                            })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.success) {
+                                    fotoUrlInput.value = data.path; // Guardar la ruta en el campo oculto
+                                    alert('Foto capturada y guardada exitosamente.');
+                                } else {
+                                    alert('Error al guardar la foto: ' + data.message);
+                                }
+                            })
+                            .catch(err => {
+                                alert('Error al subir la foto.');
+                                console.error(err);
+                            });
                     });
+                };
             });
-        };
-    });
-</script>
+        </script>
 
-    <!-- Script para imprimir el formulario -->
-    <script>
-        document.getElementById('printForm').addEventListener('click', function() {
-            // Obtener el símbolo de moneda seleccionado
-            const simboloMoneda = document.getElementById('tipo_moneda').value;
+        <!-- Script para imprimir el formulario -->
+        <script>
+document.getElementById('printForm').addEventListener('click', function () {
+    const form = document.getElementById('recepcionForm');
+    const simboloMoneda = document.getElementById('tipo_moneda').value;
 
-            // Obtener los campos extras generados dinámicamente
-            const extrasContainer = document.getElementById('camposExtras');
-            let extrasHTML = '';
-            if (extrasContainer) {
-                const extraFields = extrasContainer.querySelectorAll('input[name="extras[]"]');
-                extraFields.forEach((field, index) => {
-                    extrasHTML += `
+    // Obtener los campos extras generados dinámicamente
+    const extrasContainer = document.getElementById('camposExtras');
+    let extrasHTML = '';
+    if (extrasContainer) {
+        const extraFields = extrasContainer.querySelectorAll('input[name="extras[]"]');
+        extraFields.forEach((field, index) => {
+            extrasHTML += `
                 <div class="pos-row">
                     <span class="pos-label">Extra ${index + 1}:</span>
                     <span>${field.value || 'N/A'}</span>
                 </div>
             `;
-                });
-            }
+        });
+    }
 
-            // Crear contenido optimizado para impresión
+    // Guardar automáticamente antes de imprimir
+    const formData = new FormData(form);
+    fetch('guardar_recepcion.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            // Si guardó correctamente, imprimir
             const printContent = `
-        <style>
-            @page {
+    <style>
+        @page {
+            margin: 0;
+            padding: 0;
+            size: 80mm auto;
+        }
+        @media print {
+            body {
                 margin: 0;
                 padding: 0;
-                size: 80mm auto;
+                width: 80mm;
+                font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
             }
-            @media print {
-                body {
-                    margin: 0;
-                    padding: 0;
-                    width: 80mm;
-                    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-                }
-                .pos-print {
-                    width: 72mm;
-                    padding: 1.5mm;
-                    margin: 0 auto;
-                    font-size: 11.5px;
-                    line-height: 1.3;
-                }
-                .pos-header {
-                    text-align: center;
-                    margin-bottom: 3px;
-                    padding-bottom: 3px;
-                    border-bottom: 1px dashed #000;
-                }
-                .pos-logo {
-                    max-width: 50mm;
-                    margin: 0 auto 2px;
-                    display: block;
-                }
-                .pos-title {
-                    font-weight: bold;
-                    font-size: 13px;
-                    margin: 2px 0;
-                }
-                .pos-section {
-                    margin-bottom: 4px;
-                    padding-bottom: 2px;
-                    page-break-inside: avoid;
-                }
-                .pos-section-title {
-                    font-weight: bold;
-                    font-size: 11.5px;
-                    margin-bottom: 2px;
-                    background: #f0f0f0;
-                    padding: 2px 3px;
-                }
-                .pos-row {
-                    display: flex;
-                    justify-content: space-between;
-                    margin-bottom: 2px;
-                    page-break-inside: avoid;
-                }
-                .pos-label {
-                    font-weight: bold;
-                    min-width: 25mm;
-                }
-                .pos-extras {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 2px;
-                    margin: 3px 0;
-                }
-                .pos-checked {
-                    background: none !important;
-                    color: #000 !important;
-                    font-weight: bold !important;
-                    border: none !important;
-                    padding: 2px 4px !important;
-                    font-size: 11px !important;
-                    text-transform: uppercase;
-                    display: inline-block;
-                    box-shadow: none !important;
-                    border-radius: 0 !important;
-                }
-                .pos-observaciones {
-                    margin-top: 4px;
-                    font-size: 10px;
-                    border: 1px dashed #aaa;
-                    padding: 3px;
-                    background: #f9f9f9;
-                    min-height: 20px;
-                }
-                .pos-footer {
-                    margin-top: 4px;
-                    padding-top: 2px;
-                    border-top: 1px dashed #000;
-                    text-align: center;
-                    font-size: 11px;
-                    font-weight: bold;
-                    page-break-inside: avoid;
-                }
-                .no-print {
-                    display: none !important;
-                }
+            .pos-print {
+                width: 72mm;
+                padding: 1.5mm;
+                margin: 0 auto;
+                font-size: 11.5px;
+                line-height: 1.3;
             }
-        </style>
+            .pos-header {
+                text-align: center;
+                margin-bottom: 3px;
+                padding-bottom: 3px;
+                border-bottom: 1px dashed #000;
+            }
+            .pos-logo {
+                max-width: 50mm;
+                margin: 0 auto 2px;
+                display: block;
+            }
+            .pos-title {
+                font-weight: bold;
+                font-size: 13px;
+                margin: 2px 0;
+            }
+            .pos-section {
+                margin-bottom: 4px;
+                padding-bottom: 2px;
+                page-break-inside: avoid;
+            }
+            .pos-section-title {
+                font-weight: bold;
+                font-size: 11.5px;
+                margin-bottom: 2px;
+                background: #f0f0f0;
+                padding: 2px 3px;
+            }
+            .pos-row {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 2px;
+                page-break-inside: avoid;
+            }
+            .pos-label {
+                font-weight: bold;
+                min-width: 25mm;
+            }
+            .pos-extras {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2px;
+                margin: 3px 0;
+            }
+            .pos-checked {
+                background: none !important;
+                color: #000 !important;
+                font-weight: bold !important;
+                border: none !important;
+                padding: 2px 4px !important;
+                font-size: 11px !important;
+                text-transform: uppercase;
+                display: inline-block;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+            .pos-observaciones {
+                margin-top: 4px;
+                font-size: 10px;
+                border: 1px dashed #aaa;
+                padding: 3px;
+                background: #f9f9f9;
+                min-height: 20px;
+            }
+            .pos-footer {
+                margin-top: 4px;
+                padding-top: 2px;
+                border-top: 1px dashed #000;
+                text-align: center;
+                font-size: 11px;
+                font-weight: bold;
+                page-break-inside: avoid;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .pos-info {
+                text-align: center;
+                font-size: 11px;
+                font-weight: bold;
+                margin-bottom: 2px;
+                text-transform: uppercase;
+            }
+        }
+    </style>
 
-        <div class="pos-print">
-            <div class="pos-header">
-                <img src="/images/logo_almerco.png" alt="Logo" class="pos-logo">
-                <div class="pos-title">RECEPCIÓN DE EQUIPOS</div>
-                <div>${document.getElementById('fecha').value} ${document.getElementById('hora_recibido').value}</div>
-            </div>
+    <div class="pos-print">
+        <div class="pos-header">
+            <img src="/images/logo_almerco.png" alt="Logo" class="pos-logo">
+            <div class="pos-info">RUC: 20601687977</div>
+            <div class="pos-info">JR.HUALLAYCO NRO 1135( A 1/2 CDRA DEL COLEGIO LEONCIO PRADO).</div>
+            <div class="pos-info">HUANUCO-HUANUCO-HUANUCO.</div>
+            <div class="pos-info">CEL 991375813.</div>
+            <div class="pos-title">RECEPCIÓN DE EQUIPOS</div>
+            <div>${document.getElementById('fecha').value} ${document.getElementById('hora_recibido').value}</div>
+        </div>
 
-            <div class="pos-section">
-                <div class="pos-row">
-                    <span class="pos-label">Código:</span>
-                    <span>${document.getElementById('codigoGenerado').value || 'N/A'}</span>
-                </div>
-            </div>
-
-            <div class="pos-section">
-                <div class="pos-row">
-                    <span class="pos-label">Cliente:</span>
-                    <span>${document.getElementById('cliente_nombre').value}</span>
-                </div>
-                <div class="pos-row">
-                    <span class="pos-label">Teléfono:</span>
-                    <span>${document.getElementById('cliente_telefono').value}</span>
-                </div>
-            </div>
-
-            <div class="pos-section">
-                <div class="pos-section-title">EQUIPO</div>
-                <div class="pos-row">
-                    <span class="pos-label">Tipo:</span>
-                    <span>${document.getElementById('equipo_tipo').value}</span>
-                </div>
-                <div class="pos-row">
-                    <span class="pos-label">Contraseña:</span>
-                    <span>${document.getElementById('equipo_password').value || 'N/A'}</span>
-                </div>
-            </div>
-
-            <div class="pos-section">
-                <div class="pos-section-title">DIAGNÓSTICO</div>
-                <div class="pos-row">
-                    <span>${document.getElementById('diagnostico').value}</span>
-                </div>
-            </div>
-
-            <div class="pos-section">
-                <div class="pos-section-title">EXTRAS</div>
-                <div class="pos-extras">
-                    ${document.getElementById('extra_cargador').checked ? '<span class="pos-checked">Cargador</span>' : ''}
-                    ${document.getElementById('extra_bateria').checked ? '<span class="pos-checked">Batería</span>' : ''}
-                    ${document.getElementById('extra_bolsa').checked ? '<span class="pos-checked">Bolsa</span>' : ''}
-                    ${document.getElementById('extra_estuche').checked ? '<span class="pos-checked">Estuche</span>' : ''}
-                    ${document.getElementById('extra_cable').checked ? '<span class="pos-checked">Cable</span>' : ''}
-                </div>
-                ${extrasHTML}
-            </div>
-
-            <div class="pos-section">
-                <div class="pos-section-title">OBSERVACIONES</div>
-                <div class="pos-observaciones">
-                    ${document.getElementById('observaciones').value || 'Ninguna'}
-                </div>
-            </div>
-
-            <div class="pos-section">
-                <div class="pos-section-title">ENTREGA</div>
-                <div class="pos-row">
-                    <span class="pos-label">Fecha/Hora:</span>
-                    <span>${document.getElementById('fecha_entrega').value} ${document.getElementById('hora_entrega').value}</span>
-                </div>
-                <div class="pos-row">
-                    <span class="pos-label">Costo Estimado:</span>
-                    <span>${simboloMoneda}${parseFloat(document.getElementById('costo').value || 0).toFixed(2)}</span>
-                </div>
-            </div>
-
-            <div class="pos-footer">
-                <div>${new Date().toLocaleString()}</div>
-                <div>Atendido por: <?php echo htmlspecialchars($_SESSION['username']) ?></div>
+        <div class="pos-section">
+            <div class="pos-row">
+                <span class="pos-label">Código:</span>
+                <span>${document.getElementById('codigoGenerado').value || 'N/A'}</span>
             </div>
         </div>
-        `;
+
+        <div class="pos-section">
+            <div class="pos-row">
+                <span class="pos-label">Cliente:</span>
+                <span>${document.getElementById('cliente_nombre').value}</span>
+            </div>
+            <div class="pos-row">
+                <span class="pos-label">Teléfono:</span>
+                <span>${document.getElementById('cliente_telefono').value}</span>
+            </div>
+        </div>
+
+        <div class="pos-section">
+            <div class="pos-section-title">EQUIPO</div>
+            <div class="pos-row">
+                <span class="pos-label">Tipo:</span>
+                <span>${document.getElementById('equipo_tipo').value}</span>
+            </div>
+            <div class="pos-row">
+                <span class="pos-label">Contraseña:</span>
+                <span>${document.getElementById('equipo_password').value || 'N/A'}</span>
+            </div>
+        </div>
+
+        <div class="pos-section">
+            <div class="pos-section-title">DIAGNÓSTICO</div>
+            <div class="pos-row">
+                <span>${document.getElementById('diagnostico').value}</span>
+            </div>
+        </div>
+
+        <div class="pos-section">
+            <div class="pos-section-title">EXTRAS</div>
+            <div class="pos-extras">
+                ${document.getElementById('extra_cargador').checked ? '<span class="pos-checked">Cargador</span>' : ''}
+                ${document.getElementById('extra_bateria').checked ? '<span class="pos-checked">Batería</span>' : ''}
+                ${document.getElementById('extra_bolsa').checked ? '<span class="pos-checked">Bolsa</span>' : ''}
+                ${document.getElementById('extra_estuche').checked ? '<span class="pos-checked">Estuche</span>' : ''}
+                ${document.getElementById('extra_cable').checked ? '<span class="pos-checked">Cable</span>' : ''}
+            </div>
+            ${extrasHTML}
+        </div>
+
+        <div class="pos-section">
+            <div class="pos-section-title">OBSERVACIONES</div>
+            <div class="pos-observaciones">
+                ${document.getElementById('observaciones').value || 'Ninguna'}
+            </div>
+        </div>
+
+        <div class="pos-section">
+            <div class="pos-section-title">ENTREGA</div>
+            <div class="pos-row">
+                <span class="pos-label">Fecha/Hora:</span>
+                <span>${document.getElementById('fecha_entrega').value} ${document.getElementById('hora_entrega').value}</span>
+            </div>
+            <div class="pos-row">
+                <span class="pos-label">Costo Estimado:</span>
+                <span>${simboloMoneda}${parseFloat(document.getElementById('costo').value || 0).toFixed(2)}</span>
+            </div>
+        </div>
+
+        <div class="pos-footer">
+            <div>${new Date().toLocaleString()}</div>
+            <div>Atendido por: <?php echo htmlspecialchars($_SESSION['username']) ?></div>
+        </div>
+    </div>
+    `;
 
             // Crear ventana de impresión
             const printWindow = window.open('', '_blank');
@@ -843,8 +873,15 @@ $conn = $db->connect();
         </html>
         `);
             printWindow.document.close();
-        });
-    </script>
+        } else {
+            alert('Error al guardar antes de imprimir: ' + (data.message || 'Intente nuevamente.'));
+        }
+    })
+    .catch(err => {
+        alert('Error de conexión al guardar antes de imprimir.');
+    });
+});
+</script>
 </body>
 
 </html>
