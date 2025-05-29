@@ -7,6 +7,8 @@
         <ul>
             <li><a href="index.php"><i class="fas fa-home"></i> Recepcion Principal</a></li>
             <li><a href="reportes.php"><i class="fas fa-file-alt"></i> Reportes</a></li>
+            <li><a href="fichas_para_pc.php"><i class="fas fa-file-alt"></i> Fichas para pc</a></li>
+            <li><a href="pcs_armadas.php"><i class="fas fa-server"></i> PCs Armadas</a></li>
         </ul>
     </nav>
 </aside>
