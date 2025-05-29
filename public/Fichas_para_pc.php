@@ -1,15 +1,15 @@
 <?php
-    session_start();
-    if (! isset($_SESSION['username'])) {
-        header('Location: login.php');
-        exit;
-    }
-    $categorias = [
-        'baja'  => ['Gama Baja', ['cpu' => 'Procesador', 'ram' => 'Memoria RAM', 'storage' => 'Almacenamiento', 'mb' => 'Tarjeta Madre', 'gpu' => 'Tarjeta de Video', 'psu' => 'Fuente de Poder', 'case' => 'Gabinete']],
-        'media' => ['Gama Media', ['cpu' => 'Procesador', 'ram' => 'Memoria RAM', 'storage' => 'Almacenamiento', 'mb' => 'Tarjeta Madre', 'gpu' => 'Tarjeta de Video', 'psu' => 'Fuente de Poder', 'case' => 'Gabinete']],
-        'alta'  => ['Gama Alta', ['cpu' => 'Procesador', 'ram' => 'Memoria RAM', 'storage' => 'Almacenamiento', 'mb' => 'Tarjeta Madre', 'gpu' => 'Tarjeta de Video', 'psu' => 'Fuente de Poder', 'case' => 'Gabinete']],
-        'ultra' => ['Gama Ultra', ['cpu' => 'Procesador', 'ram' => 'Memoria RAM', 'storage' => 'Almacenamiento', 'mb' => 'Tarjeta Madre', 'gpu' => 'Tarjeta de Video', 'psu' => 'Fuente de Poder', 'case' => 'Gabinete']],
-    ];
+session_start();
+if (! isset($_SESSION['username'])) {
+    header('Location: login.php');
+    exit;
+}
+$categorias = [
+    'baja'  => ['Gama Baja', ['cpu' => 'Procesador', 'ram' => 'Memoria RAM', 'storage' => 'Almacenamiento', 'mb' => 'Tarjeta Madre', 'gpu' => 'Tarjeta de Video', 'psu' => 'Fuente de Poder', 'case' => 'Gabinete']],
+    'media' => ['Gama Media', ['cpu' => 'Procesador', 'ram' => 'Memoria RAM', 'storage' => 'Almacenamiento', 'mb' => 'Tarjeta Madre', 'gpu' => 'Tarjeta de Video', 'psu' => 'Fuente de Poder', 'case' => 'Gabinete']],
+    'alta'  => ['Gama Alta', ['cpu' => 'Procesador', 'ram' => 'Memoria RAM', 'storage' => 'Almacenamiento', 'mb' => 'Tarjeta Madre', 'gpu' => 'Tarjeta de Video', 'psu' => 'Fuente de Poder', 'case' => 'Gabinete']],
+    'ultra' => ['Gama Ultra', ['cpu' => 'Procesador', 'ram' => 'Memoria RAM', 'storage' => 'Almacenamiento', 'mb' => 'Tarjeta Madre', 'gpu' => 'Tarjeta de Video', 'psu' => 'Fuente de Poder', 'case' => 'Gabinete']],
+];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -77,24 +77,28 @@
             <h1 class="fichas-title"><i class="fas fa-desktop"></i> Fichas de Verificación de Componentes para PC</h1>
             <div class="tabs">
                 <?php foreach ($categorias as $key => $cat): ?>
-                    <button class="tab-btn<?php echo $key === 'baja' ? ' active' : ''?>" data-tab="<?php echo $key?>"><?php echo $cat[0]?></button>
+                    <button class="tab-btn<?php echo $key === 'baja' ? ' active' : '' ?>" data-tab="<?php echo $key ?>"><?php echo $cat[0] ?></button>
                 <?php endforeach; ?>
             </div>
 
             <?php foreach ($categorias as $key => [$nombre, $campos]): ?>
-                <form class="ficha-form<?php echo $key === 'baja' ? ' active' : ''?>" id="ficha-<?php echo $key?>">
+                <form class="ficha-form<?php echo $key === 'baja' ? ' active' : '' ?>" id="ficha-<?php echo $key ?>">
                     <div class="form-section">
                         <div class="form-section-title">Componentes Principales</div>
                         <?php foreach ($campos as $campo => $label): ?>
                             <div class="form-group">
-                                <label><?php echo $label?></label>
-                                <input type="text" name="<?php echo $campo?>_<?php echo $key?>" placeholder="Ej: <?php echo $label?>">
+                                <label><?php echo $label ?></label>
+                                <input type="text" name="<?php echo $campo ?>_<?php echo $key ?>" placeholder="Ej: <?php echo $label ?>">
                             </div>
                         <?php endforeach; ?>
+                        <div class="form-group">
+                <label>Cantidad de PCs a ensamblar</label>
+                <input type="number" name="cantidad_<?php echo $key ?>" min="1" value="1" required>
+            </div>
                     </div>
                     <div class="form-section">
                         <div class="form-section-title">Observaciones</div>
-                        <textarea name="obs_<?php echo $key?>" rows="2" placeholder="Notas adicionales..."></textarea>
+                        <textarea name="obs_<?php echo $key ?>" rows="2" placeholder="Notas adicionales..."></textarea>
                     </div>
                     <div class="form-actions">
                         <button type="button" class="btn btn-next"><i class="fas fa-arrow-right"></i> Siguiente</button>
@@ -103,7 +107,7 @@
             <?php endforeach; ?>
         </div>
     </div>
-<script>
+    <script>
         // Tabs para cambiar entre fichas
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', function() {
@@ -121,8 +125,8 @@
                 form.reset();
             });
         });
-</script>
-<script>
+    </script>
+    <script>
         const opcionesComponentes = {
             baja: {
                 cpu: [
@@ -276,76 +280,76 @@
 
                     // Solo para RAM y almacenamiento, agrega botón "+"
                     // ...existing code...
-    if ((campo === 'ram' || campo === 'storage') && inputs.length === 1) {
-    const firstSelect = document.querySelector(`form#ficha-${gama} select[name="${campo}_${gama}"]`);
-    const label = firstSelect.parentNode.querySelector('label');
-    const addBtn = document.createElement('button');
-    addBtn.type = 'button';
-    addBtn.textContent = '+';
-    addBtn.title = 'Agregar otro';
-    // Botón pequeño, rojo, al lado derecho del label
-    addBtn.style.background = '#e74c3c';
-    addBtn.style.color = '#fff';
-    addBtn.style.border = 'none';
-    addBtn.style.borderRadius = '50%';
-    addBtn.style.width = '22px';
-    addBtn.style.height = '22px';
-    addBtn.style.fontSize = '14px';
-    addBtn.style.cursor = 'pointer';
-    addBtn.style.marginLeft = '8px';
-    addBtn.style.verticalAlign = 'middle';
-    addBtn.style.padding = '0';
-    addBtn.style.display = 'inline-block';
+                    if ((campo === 'ram' || campo === 'storage') && inputs.length === 1) {
+                        const firstSelect = document.querySelector(`form#ficha-${gama} select[name="${campo}_${gama}"]`);
+                        const label = firstSelect.parentNode.querySelector('label');
+                        const addBtn = document.createElement('button');
+                        addBtn.type = 'button';
+                        addBtn.textContent = '+';
+                        addBtn.title = 'Agregar otro';
+                        // Botón pequeño, rojo, al lado derecho del label
+                        addBtn.style.background = '#e74c3c';
+                        addBtn.style.color = '#fff';
+                        addBtn.style.border = 'none';
+                        addBtn.style.borderRadius = '50%';
+                        addBtn.style.width = '22px';
+                        addBtn.style.height = '22px';
+                        addBtn.style.fontSize = '14px';
+                        addBtn.style.cursor = 'pointer';
+                        addBtn.style.marginLeft = '8px';
+                        addBtn.style.verticalAlign = 'middle';
+                        addBtn.style.padding = '0';
+                        addBtn.style.display = 'inline-block';
 
-    // Inserta el botón dentro del label, al final, para que quede a la derecha del texto
-    if (label && !label.querySelector('.ram-add-btn')) {
-        addBtn.classList.add('ram-add-btn');
-        label.appendChild(addBtn);
-    }
+                        // Inserta el botón dentro del label, al final, para que quede a la derecha del texto
+                        if (label && !label.querySelector('.ram-add-btn')) {
+                            addBtn.classList.add('ram-add-btn');
+                            label.appendChild(addBtn);
+                        }
 
-    addBtn.addEventListener('click', function() {
-        const form = document.getElementById(`ficha-${gama}`);
-        const selects = form.querySelectorAll(`select[name^="${campo}_${gama}"]`);
-        if (selects.length >= 4) return;
+                        addBtn.addEventListener('click', function() {
+                            const form = document.getElementById(`ficha-${gama}`);
+                            const selects = form.querySelectorAll(`select[name^="${campo}_${gama}"]`);
+                            if (selects.length >= 4) return;
 
-        const newGroup = document.createElement('div');
-        newGroup.className = 'form-group';
-        const newLabel = document.createElement('label');
-        newLabel.textContent = (campo === 'ram' ? 'Memoria RAM' : 'Almacenamiento') + ` #${selects.length + 1}`;
-        newGroup.appendChild(newLabel);
+                            const newGroup = document.createElement('div');
+                            newGroup.className = 'form-group';
+                            const newLabel = document.createElement('label');
+                            newLabel.textContent = (campo === 'ram' ? 'Memoria RAM' : 'Almacenamiento') + ` #${selects.length + 1}`;
+                            newGroup.appendChild(newLabel);
 
-        const newSelect = firstSelect.cloneNode(true);
-        newSelect.name = `${campo}_${gama}_${selects.length + 1}`;
-        newSelect.selectedIndex = 0;
-        newGroup.appendChild(newSelect);
+                            const newSelect = firstSelect.cloneNode(true);
+                            newSelect.name = `${campo}_${gama}_${selects.length + 1}`;
+                            newSelect.selectedIndex = 0;
+                            newGroup.appendChild(newSelect);
 
-        // Botón para eliminar
-        const delBtn = document.createElement('button');
-        delBtn.type = 'button';
-        delBtn.textContent = '–';
-        delBtn.title = 'Quitar';
-        delBtn.style.background = '#e74c3c';
-        delBtn.style.color = '#fff';
-        delBtn.style.border = 'none';
-        delBtn.style.borderRadius = '50%';
-        delBtn.style.width = '22px';
-        delBtn.style.height = '22px';
-        delBtn.style.fontSize = '14px';
-        delBtn.style.cursor = 'pointer';
-        delBtn.style.marginLeft = '8px';
-        delBtn.style.verticalAlign = 'middle';
-        delBtn.style.padding = '0';
-        delBtn.style.display = 'inline-block';
-        delBtn.onclick = function() {
-            newGroup.remove();
-        };
-        newGroup.appendChild(delBtn);
+                            // Botón para eliminar
+                            const delBtn = document.createElement('button');
+                            delBtn.type = 'button';
+                            delBtn.textContent = '–';
+                            delBtn.title = 'Quitar';
+                            delBtn.style.background = '#e74c3c';
+                            delBtn.style.color = '#fff';
+                            delBtn.style.border = 'none';
+                            delBtn.style.borderRadius = '50%';
+                            delBtn.style.width = '22px';
+                            delBtn.style.height = '22px';
+                            delBtn.style.fontSize = '14px';
+                            delBtn.style.cursor = 'pointer';
+                            delBtn.style.marginLeft = '8px';
+                            delBtn.style.verticalAlign = 'middle';
+                            delBtn.style.padding = '0';
+                            delBtn.style.display = 'inline-block';
+                            delBtn.onclick = function() {
+                                newGroup.remove();
+                            };
+                            newGroup.appendChild(delBtn);
 
-        let last = selects[selects.length - 1].parentNode;
-        last.parentNode.insertBefore(newGroup, last.nextSibling);
-    });
-    }
-    // ...existing code...
+                            let last = selects[selects.length - 1].parentNode;
+                            last.parentNode.insertBefore(newGroup, last.nextSibling);
+                        });
+                    }
+                    // ...existing code...
                 });
             });
 
@@ -360,50 +364,51 @@
                 });
             });
             document.querySelectorAll('.btn-next').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            const form = btn.closest('form');
-            // Obtén los valores seleccionados de los selects
-            const piezas = {};
-            form.querySelectorAll('select').forEach(sel => {
-                if (sel.value) piezas[sel.name] = sel.value;
+                btn.addEventListener('click', function(e) {
+                    const form = btn.closest('form');
+                    // Obtén los valores seleccionados de los selects
+                    const piezas = {};
+                    form.querySelectorAll('select').forEach(sel => {
+                        if (sel.value) piezas[sel.name] = sel.value;
+                    });
+                    // Muestra el formulario QA en un modal tipo PDF (simulado)
+                    mostrarFormularioQA(piezas);
+                });
             });
-            // Muestra el formulario QA en un modal tipo PDF (simulado)
-            mostrarFormularioQA(piezas);
-        });
-    });
-    function mostrarFormularioQA(piezas) {
-    // Si ya existe el modal, elimínalo
-    let oldModal = document.getElementById('qa-modal');
-    if (oldModal) oldModal.remove();
 
-    // Crea el modal
-    const modal = document.createElement('div');
-    modal.id = 'qa-modal';
-    modal.style.position = 'fixed';
-    modal.style.top = '0';
-    modal.style.left = '0';
-    modal.style.width = '100vw';
-    modal.style.height = '100vh';
-    modal.style.background = 'rgba(0,0,0,0.7)';
-    modal.style.display = 'flex';
-    modal.style.alignItems = 'center';
-    modal.style.justifyContent = 'center';
-    modal.style.zIndex = '9999';
+            function mostrarFormularioQA(piezas) {
+                // Si ya existe el modal, elimínalo
+                let oldModal = document.getElementById('qa-modal');
+                if (oldModal) oldModal.remove();
 
-    // Contenido tipo "PDF"
-    const content = document.createElement('div');
-    content.style.background = '#f9f9f9';
-    content.style.borderRadius = '12px';
-    content.style.padding = '40px 32px';
-    content.style.width = '95vw';
-    content.style.maxWidth = '700px';
-    content.style.maxHeight = '92vh';
-    content.style.overflowY = 'auto';
-    content.style.boxShadow = '0 8px 32px rgba(0,0,0,0.25)';
-    content.style.fontFamily = 'Segoe UI, Arial, sans-serif';
-    content.style.border = '2px solid #3a0ca3';
+                // Crea el modal
+                const modal = document.createElement('div');
+                modal.id = 'qa-modal';
+                modal.style.position = 'fixed';
+                modal.style.top = '0';
+                modal.style.left = '0';
+                modal.style.width = '100vw';
+                modal.style.height = '100vh';
+                modal.style.background = 'rgba(0,0,0,0.7)';
+                modal.style.display = 'flex';
+                modal.style.alignItems = 'center';
+                modal.style.justifyContent = 'center';
+                modal.style.zIndex = '9999';
 
-    content.innerHTML = `
+                // Contenido tipo "PDF"
+                const content = document.createElement('div');
+                content.style.background = '#f9f9f9';
+                content.style.borderRadius = '12px';
+                content.style.padding = '40px 32px';
+                content.style.width = '95vw';
+                content.style.maxWidth = '700px';
+                content.style.maxHeight = '92vh';
+                content.style.overflowY = 'auto';
+                content.style.boxShadow = '0 8px 32px rgba(0,0,0,0.25)';
+                content.style.fontFamily = 'Segoe UI, Arial, sans-serif';
+                content.style.border = '2px solid #3a0ca3';
+
+                content.innerHTML = `
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
             <h2 style="color:#3a0ca3;margin:0;font-size:2rem;display:flex;align-items:center;gap:10px;">
                 <i class="fas fa-clipboard-check"></i> Checklist QA de Ensamblaje
@@ -434,24 +439,24 @@
                 </button>
             </div>
         </form>
-    `;
+        `;
 
-    modal.appendChild(content);
-    document.body.appendChild(modal);
+                modal.appendChild(content);
+                document.body.appendChild(modal);
 
-    // Cerrar modal
-    document.getElementById('qa-cerrar').onclick = () => modal.remove();
+                // Cerrar modal
+                document.getElementById('qa-cerrar').onclick = () => modal.remove();
 
-    // Añadir opción de verificación extra
-    document.getElementById('qa-add-item').onclick = function() {
-        const qaItems = document.getElementById('qa-items');
-        const idx = qaItems.querySelectorAll('.qa-item').length + 1;
-        const div = document.createElement('div');
-        div.className = 'qa-item';
-        div.style.marginBottom = '22px';
-        div.style.paddingBottom = '12px';
-        div.style.borderBottom = '1px solid #ececec';
-        div.innerHTML = `
+                // Añadir opción de verificación extra
+                document.getElementById('qa-add-item').onclick = function() {
+                    const qaItems = document.getElementById('qa-items');
+                    const idx = qaItems.querySelectorAll('.qa-item').length + 1;
+                    const div = document.createElement('div');
+                    div.className = 'qa-item';
+                    div.style.marginBottom = '22px';
+                    div.style.paddingBottom = '12px';
+                    div.style.borderBottom = '1px solid #ececec';
+                    div.innerHTML = `
             <div style="font-weight:bold;color:#222;font-size:1.08rem;margin-bottom:6px;">
                 Opción extra #${idx}:
                 <input type="text" name="extra_nombre_${idx}" placeholder="Nombre de la verificación" style="margin-left:8px;padding:4px 8px;border-radius:5px;border:1px solid #ccc;width:40%;">
@@ -462,67 +467,77 @@
                 <input type="text" name="obs_extra_${idx}" placeholder="Observaciones" style="flex:1;padding:6px 10px;border-radius:5px;border:1px solid #ccc;">
             </div>
         `;
-        qaItems.appendChild(div);
-    };
+                    qaItems.appendChild(div);
+                };
 
-    // ...dentro de mostrarFormularioQA...
-// Finalizar QA y guardar en la base de datos
-document.getElementById('qa-form').onsubmit = async function(e) {
-    e.preventDefault();
+                // ...dentro de mostrarFormularioQA...
+                // Finalizar QA y guardar en la base de datos
+                document.getElementById('qa-form').onsubmit = async function(e) {
+                    e.preventDefault();
 
-    // Recolectar datos de QA
-    const form = e.target;
-    const formData = new FormData(form);
-    let checklist = [];
-    document.querySelectorAll('#qa-items .qa-item').forEach(item => {
-        let nombre = item.querySelector('input[name^="extra_nombre_"]') 
-            ? item.querySelector('input[name^="extra_nombre_"]').value 
-            : item.querySelector('div').textContent.split(':')[0].trim();
-        let ok = item.querySelector('input[type="checkbox"][name^="ok_"]').checked;
-        let fail = item.querySelector('input[type="checkbox"][name^="fail_"]').checked;
-        let obs = item.querySelector('input[type="text"][name^="obs_"]').value;
-        checklist.push({nombre, ok, fail, obs});
-    });
+                    // Recolectar datos de QA
+                    const form = e.target;
+                    const formData = new FormData(form);
+                    let checklist = [];
+                    document.querySelectorAll('#qa-items .qa-item').forEach(item => {
+                        let nombre = item.querySelector('input[name^="extra_nombre_"]') ?
+                            item.querySelector('input[name^="extra_nombre_"]').value :
+                            item.querySelector('div').textContent.split(':')[0].trim();
+                        let ok = item.querySelector('input[type="checkbox"][name^="ok_"]').checked;
+                        let fail = item.querySelector('input[type="checkbox"][name^="fail_"]').checked;
+                        let obs = item.querySelector('input[type="text"][name^="obs_"]').value;
+                        checklist.push({
+                            nombre,
+                            ok,
+                            fail,
+                            obs
+                        });
+                    });
 
-    // Datos de la PC ensamblada (de la ficha activa)
-    const fichaForm = document.querySelector('.ficha-form.active');
-    const gama = fichaForm.id.replace('ficha-', '');
-    const usuario = "<?php echo $_SESSION['username']; ?>";
-    const obs = fichaForm.querySelector('textarea[name^="obs_"]').value;
-    const campos = {};
-    fichaForm.querySelectorAll('select').forEach(sel => {
-        campos[sel.name] = sel.value;
-    });
+                    // Datos de la PC ensamblada (de la ficha activa)
+                    const fichaForm = document.querySelector('.ficha-form.active');
+                    const cantidadInput = fichaForm.querySelector('input[name^="cantidad_"]');
+                    const cantidad = cantidadInput ? parseInt(cantidadInput.value, 10) || 1 : 1;
+                    const gama = fichaForm.id.replace('ficha-', '');
+                    const usuario = "<?php echo $_SESSION['username']; ?>";
+                    const obs = fichaForm.querySelector('textarea[name^="obs_"]').value;
+                    const campos = {};
+                    fichaForm.querySelectorAll('select').forEach(sel => {
+                        campos[sel.name] = sel.value;
+                    });
 
-    // Enviar por AJAX a PHP
-    const response = await fetch('guardar_pc_ensamblada.php', {
-    method: 'POST',
-    headers: {'Accept': 'application/json'},
-    body: JSON.stringify({
-        usuario,
-        gama,
-        campos,
-        observaciones: obs,
-        checklist_qa: checklist
-    })
-});
-const text = await response.text();
-try {
-    const res = JSON.parse(text);
-    if (res.success) {
-        alert('PC ensamblada y QA guardados correctamente.');
-        modal.remove();
-        fichaForm.reset();
-    } else {
-        alert('Error al guardar: ' + (res.error || ''));
-    }
-} catch (err) {
-    alert('Respuesta inesperada del servidor:\n' + text);
-}
-    };
-}
+                    // Enviar por AJAX a PHP
+                    const response = await fetch('guardar_pc_ensamblada.php', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            usuario,
+                            gama,
+                            campos,
+                            cantidad,
+                            observaciones: obs,
+                            checklist_qa: checklist
+                        })
+                    });
+                    const text = await response.text();
+                    try {
+                        const res = JSON.parse(text);
+                        if (res.success) {
+                            alert('PC ensamblada y QA guardados correctamente.');
+                            modal.remove();
+                            fichaForm.reset();
+                        } else {
+                            alert('Error al guardar: ' + (res.error || ''));
+                        }
+                    } catch (err) {
+                        alert('Respuesta inesperada del servidor:\n' + text);
+                    }
+                };
+            }
         });
-</script>
+    </script>
 </body>
 
 </html>
