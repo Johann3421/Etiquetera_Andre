@@ -16,15 +16,7 @@ $pcs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../public/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-    <style>
-        .pcs-table { width:100%; border-collapse:collapse; margin-top:24px; }
-        .pcs-table th, .pcs-table td { border:1px solid #ccc; padding:8px; }
-        .pcs-table th { background:#3a0ca3; color:#fff; }
-        .pcs-table tr:nth-child(even) { background:#f6f6f6; }
-        .btn-piezas { background:#4361ee; color:#fff; border:none; border-radius:5px; padding:5px 12px; cursor:pointer; }
-        .qa-list { margin:0; padding:0; list-style:none; }
-        .qa-list li { margin-bottom:8px; }
-    </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
     function verPiezas(piezas) {
         let html = '<ul style="padding-left:18px;">';
@@ -77,47 +69,50 @@ $pcs = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <th>Checklist QA</th>
     </tr> 
         </thead>
-        <tbody>
-            <?php foreach($pcs as $pc): ?>
-            <tr>
-                <td><?= htmlspecialchars($pc['fecha']) ?></td>
-    <td><?= htmlspecialchars($pc['usuario']) ?></td>
-    <td><?= htmlspecialchars($pc['gama']) ?></td>
-    <td><?= htmlspecialchars($pc['cantidad']) ?></td> <!-- Nueva columna -->
-                <td><span style="color:green;font-weight:bold;"><i class="fas fa-check-circle"></i> Ensamblada</span></td>
-                <td>
-                    <button class="btn-piezas" onclick='verPiezas(<?= json_encode([
-                        'CPU' => $pc['cpu'],
-                        'RAM' => $pc['ram'],
-                        'Almacenamiento' => $pc['storage'],
-                        'Tarjeta Madre' => $pc['mb'],
-                        'GPU' => $pc['gpu'],
-                        'PSU' => $pc['psu'],
-                        'Gabinete' => $pc['case']
-                    ], JSON_UNESCAPED_UNICODE | JSON_HEX_APOS) ?>)'>
-                        Ver piezas
-                    </button>
-                </td>
-                <td>
-    <?php
-    $qa = json_decode($pc['checklist_qa'], true);
-    $pc_id = $pc['id'];
-    ?>
-    <div style="display:flex; flex-direction:column; gap:7px;">
-        <button class="btn-piezas" onclick="verChecklistQA(<?= $pc['id'] ?>)">
-    <i class="fas fa-list-check"></i> Ver checklist
-</button>
-        <button class="btn-piezas" style="background:#43aa8b;" onclick="abrirAgregarChecklist(<?= $pc_id ?>)">
-            <i class="fas fa-plus"></i> Añadir checklist
-        </button>
-        <button class="btn-piezas" style="background:#f9c846;color:#222;" onclick="window.open('imprimir_qa.php?pc_id=<?= $pc_id ?>','_blank')">
-    <i class="fas fa-print"></i> Imprimir QA
-</button>
-    </div>
-</td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
+        <?php foreach($pcs as $pc): ?>
+    <tr>
+        <td data-label="Fecha"><?= htmlspecialchars($pc['fecha']) ?></td>
+        <td data-label="Usuario"><?= htmlspecialchars($pc['usuario']) ?></td>
+        <td data-label="Gama"><?= htmlspecialchars($pc['gama']) ?></td>
+        <td data-label="Cantidad"><?= htmlspecialchars($pc['cantidad']) ?></td>
+        <td data-label="PC ensamblada">
+            <span style="color:green;font-weight:bold;">
+                <i class="fas fa-check-circle"></i> Ensamblada
+            </span>
+        </td>
+        <td data-label="Piezas">
+            <button class="btn-piezas" onclick='verPiezas(<?= json_encode([
+                'CPU' => $pc['cpu'],
+                'RAM' => $pc['ram'],
+                'Almacenamiento' => $pc['storage'],
+                'Tarjeta Madre' => $pc['mb'],
+                'GPU' => $pc['gpu'],
+                'PSU' => $pc['psu'],
+                'Gabinete' => $pc['case']
+            ], JSON_UNESCAPED_UNICODE | JSON_HEX_APOS) ?>)'>
+                Ver piezas
+            </button>
+        </td>
+        <td data-label="Checklist QA">
+            <?php
+            $qa = json_decode($pc['checklist_qa'], true);
+            $pc_id = $pc['id'];
+            ?>
+            <div style="display:flex; flex-direction:column; gap:7px;">
+                <button class="btn-piezas" onclick="verChecklistQA(<?= $pc['id'] ?>)">
+                    <i class="fas fa-list-check"></i> Ver checklist
+                </button>
+                <button class="btn-piezas" style="background:#43aa8b;" onclick="abrirAgregarChecklist(<?= $pc_id ?>)">
+                    <i class="fas fa-plus"></i> Añadir checklist
+                </button>
+                <button class="btn-piezas" style="background:#f9c846;color:#222;" onclick="window.open('imprimir_qa.php?pc_id=<?= $pc_id ?>','_blank')">
+                    <i class="fas fa-print"></i> Imprimir QA
+                </button>
+            </div>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</tbody>
     </table>
 </div>
 <script>
